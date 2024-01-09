@@ -1,6 +1,8 @@
 //Add esses imports
 import { Component, OnInit } from '@angular/core';
+//formatação
 import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
+//import shared service e teacher
 import { SharedService } from 'src/app/shared/shared.service';
 import { TeacherService } from '../teacher.service';
 @Component({
@@ -11,11 +13,15 @@ import { TeacherService } from '../teacher.service';
 export class TeacherListComponent implements OnInit {
   faPencil = faPencil;
   faTrash = faTrash;
-
+  
+  //atributos curso e professores
   courseLabel: Array<{ value: string, label: string }> = [];
   teachers: any[] = [];
 
-  constructor(private teacherService: TeacherService, private sharedService: SharedService) { }
+  constructor(
+    private teacherService: TeacherService, 
+    private sharedService: SharedService
+    ) { }
 
   async ngOnInit(): Promise<void> {
     await this.listTeachers();

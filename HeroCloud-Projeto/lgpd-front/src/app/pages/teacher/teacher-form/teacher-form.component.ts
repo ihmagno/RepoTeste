@@ -36,6 +36,7 @@ export class TeacherFormComponent {
           type: 'input',
           props: {
             label: 'Id do Curso',
+            placeholder: 'Nome do Curso',
             required: true
           },
         }

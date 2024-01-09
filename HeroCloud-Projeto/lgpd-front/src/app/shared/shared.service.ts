@@ -14,9 +14,14 @@ export interface Params {
     providedIn: 'root'
 })
 export class SharedService {
-
+    //acrescentar estruturas para conversores 
+    //os valores de url e params vem do componente
+    //acrescentar os conversores
+    //complementar os contrutores
+    
     users: Array<{ value: string, label: string }> = [];
     courses: Array<{ value: string, label: string }> = [];
+    
 
     getUsers(): Observable<any[]> {
         return this.http
@@ -24,7 +29,7 @@ export class SharedService {
             .pipe(
                 map(x => {
                     Object.values(x).map((_user) => {
-                        let u = { value: _user.id, label: _user.first_name }
+                        let u = { value: _user.id, label: _user.firstName }
                         this.users.push(u);
                     })
                     console.log(x);
